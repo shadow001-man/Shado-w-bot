@@ -1,29 +1,39 @@
+const axios = require("axios");
+
 module.exports = {
   config: {
     name: "chat",
-    aliases: ["ai", "prompt", "ask"],
-    version: "1.1",
-    author: "Cláudio & Sh4n.Dev",
-    countDown: 3,
+    aliases: ["gpt", "ia"],
+    version: "1.0",
+    author: "teu_nome",
     role: 0,
-    shortDescription: "Conversa com a IA (ChatGPT)",
-    longDescription: "Permite conversar livremente com uma inteligência artificial (modo ChatGPT).",
-    category: "ai",
-    guide: {
-      pt: "{pn} [mensagem]",
-    },
+    shortDescription: "Conversar com uma IA",
+    longDescription: "Permite conversar com uma IA (ChatGPT).",
+    category: "fun",
+    guide: "{pn} <mensagem>"
   },
 
   onStart: async function ({ api, event, args }) {
-    const axios = require("axios");
-    const message = args.join(" ");
-    if (!message)
+    const prompt = args.join(" ");
+    if (!prompt)
       return api.sendMessage("💬 | Escreve algo para conversar comigo!", event.threadID, event.messageID);
 
     try {
-      const res = await axios.get(`https://zenith-ai.vercel.app/api/chat?q=${encodeURIComponent(message)}`);
-const reply = res.data.response || "Desculpa, não consegui responder agora 😔.";
-      return api.sendMessage("❌ | Ocorreu um erro ao tentar falar com a IA.", event.threadID, event.messageID);
+      const response = await axios.post("https://api.openai.com/v1/chat/completions", {
+        model: "gpt-3.5-turbo",
+        messages: [{ role: "user", content: prompt }]
+      }, {
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${process.env.OPENAI_API_KEY}` // tua chave da OpenAI
+        }
+      });
+
+      const reply = response.data.choices[0].message.content;
+      api.sendMessage(reply, event.threadID, event.messageID);
+    } catch (error) {
+      console.error(error);
+      api.sendMessage("❌ | Ocorreu um erro ao tentar falar com a IA.", event.threadID, event.messageID);
     }
-  },
+  }
 };
