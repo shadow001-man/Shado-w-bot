@@ -21,7 +21,7 @@ module.exports = {
     }
 
     try {
-      const apiKey = "AIzaSyBaC_860TYHtQ-VfW1Oy8QdKw1PjRVMtAk";  // Coloque tu chave aqui para testar (temporário)
+      const apiKey = "OPENAI_API_KEY";  // Coloque tu chave aqui para testar (temporário)
       const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
       // Ajuste do modelo: gemini-1.5-flash é só exemplo; pode usar outro modelo disponível
 
