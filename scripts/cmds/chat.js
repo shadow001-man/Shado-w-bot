@@ -2,7 +2,7 @@ module.exports = {
   config: {
     name: "chat",
     aliases: ["ai", "prompt", "ask"],
-    version: "1.0",
+    version: "1.1",
     author: "Cláudio & Sh4n.Dev",
     countDown: 3,
     role: 0,
@@ -17,13 +17,15 @@ module.exports = {
   onStart: async function ({ api, event, args }) {
     const axios = require("axios");
     const message = args.join(" ");
-    if (!message) return api.sendMessage("💬 | Escreve algo para conversar comigo!", event.threadID, event.messageID);
+    if (!message)
+      return api.sendMessage("💬 | Escreve algo para conversar comigo!", event.threadID, event.messageID);
 
     try {
-      const res = await axios.get(`https://api.kenliejugarap.com/gpt-4-turbo?q=${encodeURIComponent(message)}`);
-      const reply = res.data.result || "Desculpa, não consegui responder agora 😔.";
+      const res = await axios.get(`https://vihangayt.me/tools/chatgpt?q=${encodeURIComponent(message)}`);
+      const reply = res.data.data || "Desculpa, não consegui responder agora 😔.";
       return api.sendMessage(`🤖 ${reply}`, event.threadID, event.messageID);
     } catch (e) {
+      console.error(e);
       return api.sendMessage("❌ | Ocorreu um erro ao tentar falar com a IA.", event.threadID, event.messageID);
     }
   },
