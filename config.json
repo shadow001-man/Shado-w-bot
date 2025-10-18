@@ -12,19 +12,29 @@
 	"antiInbox": false,
 	"language": "en",
 	"notesLanguage": "change to your language with ISO 639-1 code, available languages: vi (Vietnamese), en (English)",
-	"nickNameBot": "SH AN BOT",
-	"prefix": "/",
+	"nickNameBot": "SHA DOW BOT",
+	"prefix": "/╭‣ 𝐂𝐈𝐃 𝐁𝐨𝐭 🎭
+╰‣ ❀ėฬ𝔯 𝖋á𝒊ⲍ𐍈❀ 
+
+🌎 𝐆𝐥𝐨𝐛𝐚𝐥 𝐩𝐫𝐞𝐟𝐢𝐱: (
+
+🏌𝐘𝐨𝐮𝐫 𝐠𝐫𝐨𝐮𝐩 𝐩𝐫𝐞𝐟𝐢𝐱: (
+
+💡 𝐓𝐢𝐩: 𝐔𝐬𝐞 (𝐡𝐞𝐥𝐩 𝐭𝐨 𝐬𝐞𝐞 𝐚𝐥𝐥 𝐜𝐨𝐦𝐦𝐚𝐧𝐝𝐬
+
+╭‣ 𝐂𝐈𝐃 ⓕ
+╰‣ m.me/cid.kagenou2020",
 	"adminOnly": {
 		"enable": false,
 		"ignoreCommand": []
 	},
 	"adminBot": [
-		"100045644423035"
+		"61560109715212"
 	],
-	"owner": ["100045644423035"],
+	"owner": ["61560109715212"],
 	"whiteListMode": {
 		"enable": false,
-		"whiteListIds": ["100045644423035"],
+		"whiteListIds": ["61560109715212"],
 		"notes": "if you enable this feature, only the ids in the whiteListIds list can use the bot"
 	},
 	"whiteListModeThread": {
@@ -40,10 +50,10 @@
 		"autoRefreshThreadInfoFirstTime": true,
 		"notes": "(1) type selects 'json' or 'sqlite' or 'mongodb'. If you choose mongodb, enter uri connect mongodb in the uriMongodb section, instructions to get uri connect mongodb at: https://youtu.be/z1f9urHW5xY. I recommend using 'mongodb' or 'sqlite', json is not recommended because it is not stable. (2) when you set autoSyncWhenStart to true, the bot will automatically synchronize the data in the database when starting the bot, this will make the bot start slower. (3) when you set autoRefreshThreadInfoFirstTime to true, the bot will automatically refresh the thread information when get first message from the thread since starting the bot"
 	},
-	"timeZone": "Asia/Dhaka",
+	"timeZone": "África/Angola",
 	"credentials": {
 		"gmailAccount": {
-			"email": "sirana5097@gmail.com",
+			"email": "claudiochivindas145@gmail.com",
 			"clientId": "255361029474-23gsoq2mk3917srj7teaot6o3jklkag0.apps.googleusercontent.com",
 			"clientSecret": "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",
 			"refreshToken": "1//04RUwcisFyzPMCgYIARAAGAQSNwF-L9IrrhGECen-KP7IHWTWmK8fTyP0awZCpdwFpVZG7cJKhyrHhmXzlYtXWUs_eB3wfzByGQY",
@@ -98,7 +108,7 @@
 		"notes": "This is the message when the bot is listening to the mqtt server and the mqtt server stops working due to account problems such as: locked acc, blocked due to spam,... bot will automatically send notifications to parts of your settings. You must change enable to true to use this feature. See bot/login/handlerWhenListenHasError.js file for details on how it works",
 		"gmail": {
 			"enable": true,
-			"emailGetNoti": "sirana5097@gmail.com",
+			"emailGetNoti": "claudiochivindas145@gmail.com",
 			"note": "Bot will use gmailAccount to send email to emailGetNoti, can send notifications to many email, separate by comma or space, example: \"example1@gmail.com example2@gmail.com\" (without backslash)"
 		},
 		"telegram": {
