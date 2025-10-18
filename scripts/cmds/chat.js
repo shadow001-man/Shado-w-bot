@@ -1,39 +1,64 @@
-const axios = require("axios");
-
 module.exports = {
   config: {
     name: "chat",
-    aliases: ["gpt", "ia"],
+    aliases: ["ai", "gemini", "ask"],
     version: "1.0",
-    author: "teu_nome",
+    author: "Claudio",
     role: 0,
-    shortDescription: "Conversar com uma IA",
-    longDescription: "Permite conversar com uma IA (ChatGPT).",
-    category: "fun",
-    guide: "{pn} <mensagem>"
+    shortDescription: "Conversa com Gemini (Google)",
+    longDescription: "Usa a API Gemini da Google para responder perguntas.",
+    category: "ai",
+    guide: {
+      pt: "{pn} [mensagem]"
+    }
   },
 
   onStart: async function ({ api, event, args }) {
+    const axios = require("axios");
     const prompt = args.join(" ");
-    if (!prompt)
+    if (!prompt) {
       return api.sendMessage("💬 | Escreve algo para conversar comigo!", event.threadID, event.messageID);
+    }
 
     try {
-      const response = await axios.post("https://api.openai.com/v1/chat/completions", {
-        model: "gpt-3.5-turbo",
-        messages: [{ role: "user", content: prompt }]
-      }, {
+      const apiKey = "AIzaSyBaC_860TYHtQ-VfW1Oy8QdKw1PjRVMtAk";  // Coloque tu chave aqui para testar (temporário)
+      const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
+      // Ajuste do modelo: gemini-1.5-flash é só exemplo; pode usar outro modelo disponível
+
+      const body = {
+        "prompt": {
+          "messages": [
+            {
+              "author": "user",
+              "content": {
+                "text": prompt
+              }
+            }
+          ]
+        }
+      };
+
+      const response = await axios.post(url, body, {
         headers: {
-          "Content-Type": "application/json",
-          "Authorization": `Bearer ${process.env.OPENAI_API_KEY}` // tua chave da OpenAI
+          "Content-Type": "application/json"
         }
       });
 
-      const reply = response.data.choices[0].message.content;
-      api.sendMessage(reply, event.threadID, event.messageID);
-    } catch (error) {
-      console.error(error);
-      api.sendMessage("❌ | Ocorreu um erro ao tentar falar com a IA.", event.threadID, event.messageID);
+      // Extrair resposta do retorno
+      let reply = "";
+      if (response.data && response.data.candidates && response.data.candidates.length > 0) {
+        reply = response.data.candidates[0].content.text;
+      } else if (response.data && response.data.candidates && response.data.candidates[0].content) {
+        reply = response.data.candidates[0].content;
+      } else {
+        reply = "Desculpa, não consegui processar sua pergunta.";
+      }
+
+      return api.sendMessage(`🤖 ${reply}`, event.threadID, event.messageID);
+
+    } catch (err) {
+      console.error("Erro Gemini API:", err.response ? err.response.data : err.message);
+      return api.sendMessage("❌ | Erro ao contactar Gemini.", event.threadID, event.messageID);
     }
   }
 };
