@@ -21,11 +21,8 @@ module.exports = {
       return api.sendMessage("💬 | Escreve algo para conversar comigo!", event.threadID, event.messageID);
 
     try {
-      const res = await axios.get(`https://vihangayt.me/tools/chatgpt?q=${encodeURIComponent(message)}`);
-      const reply = res.data.data || "Desculpa, não consegui responder agora 😔.";
-      return api.sendMessage(`🤖 ${reply}`, event.threadID, event.messageID);
-    } catch (e) {
-      console.error(e);
+      const res = await axios.get(`https://zenith-ai.vercel.app/api/chat?q=${encodeURIComponent(message)}`);
+const reply = res.data.response || "Desculpa, não consegui responder agora 😔.";
       return api.sendMessage("❌ | Ocorreu um erro ao tentar falar com a IA.", event.threadID, event.messageID);
     }
   },
