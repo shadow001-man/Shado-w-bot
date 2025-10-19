@@ -1,14 +1,14 @@
-const fs = require("fs-extra");
+	const fs = require("fs-extra");
 const { utils } = global;
 
 module.exports = {
 	config: {
 		name: "prefix",
 		version: "1.4",
-		author: "ShAn e shadow",
+		author: "ShAn / Edit by Cid",
 		countDown: 5,
 		role: 0,
-		description: "Thay đổi dấu lệnh của bot trong box chat của bạn hoặc cả hệ thống bot (chỉ admin bot)",
+		description: "Muda o prefixo do bot no chat atual ou em todo o sistema (apenas para admin do bot)",
 		category: "config",
 		guide: {
 			vi: "   {pn} <new prefix>: thay đổi prefix mới trong box chat của bạn"
@@ -36,32 +36,35 @@ module.exports = {
 			confirmThisThread: "Vui lòng thả cảm xúc bất kỳ vào tin nhắn này để xác nhận thay đổi prefix trong nhóm chat của bạn",
 			successGlobal: "Đã thay đổi prefix hệ thống bot thành: %1",
 			successThisThread: "Đã thay đổi prefix trong nhóm chat của bạn thành: %1",
-			myPrefix: "╭‣ 𝐂𝐈𝐃 𝐁𝐨𝐭 🎭"
-  + "\n  ╰‣ ❀𝐒𝐇𝐀𝐃𝐎𝐖❀ " 
-  + "\n "	                         
-  + "\n ~🌀𝐆𝐥𝐨𝐛𝐚𝐥 𝐩𝐫𝐞𝐟𝐢𝐱:: %1"
-  + "\n ~🏌𝐘𝐨𝐮𝐫 𝐠𝐫𝐨𝐮𝐩 𝐩𝐫𝐞𝐟𝐢𝐱: %2"
-  + "\n "
-  + "\n ╭‣ 𝐂𝐈𝐃 ⓕ "
-  + "\n ╰‣ m.me/cid.kagenou2020"
-
+			myPrefix:
+				"╭‣ 𝐂𝐈𝐃 𝐁𝐨𝐭 🎭"
+				+ "\n╰‣ ❀𝐒𝐇𝐀𝐃𝐎𝐖❀"
+				+ "\n"
+				+ "\n🌀 𝐆𝐥𝐨𝐛𝐚𝐥 𝐩𝐫𝐞𝐟𝐢𝐱: %1"
+				+ "\n🏌 𝐘𝐨𝐮𝐫 𝐠𝐫𝐨𝐮𝐩 𝐩𝐫𝐞𝐟𝐢𝐱: %2"
+				+ "\n"
+				+ "\n💡 𝐓𝐢𝐩: 𝐔𝐬𝐞 (%1help) 𝐭𝐨 𝐬𝐞𝐞 𝐚𝐥𝐥 𝐜𝐨𝐦𝐦𝐚𝐧𝐝𝐬"
+				+ "\n╭‣ 𝐂𝐈𝐃 ⓕ"
+				+ "\n╰‣ m.me/cid.kagenou2020"
 		},
 		en: {
-			reset: "🙆| Your prefix has been reset to default: %1",
-			onlyAdmin: "⭕| Only admin can change prefix of system bot",
-			confirmGlobal: "⚠️| Please react to this message to confirm change prefix of system bot",
-			confirmThisThread: "⚠️| Please react to this message to confirm change prefix in your box chat",
-			successGlobal: "♻️| Changed prefix of system bot to: %1",
-			successThisThread: "♻️| Changed prefix in your box chat to: %1",
-			myPrefix: "╭‣ 𝐂𝐈𝐃 𝐁𝐨𝐭 🎭"
-  + "\n  ╰‣ ❀𝐒𝐇𝐀𝐃𝐎𝐖❀ " 
-  + "\n "	                         
-  + "\n ~🌀𝐆𝐥𝐨𝐛𝐚𝐥 𝐩𝐫𝐞𝐟𝐢𝐱:: %1"
-  + "\n ~🏌𝐘𝐨𝐮𝐫 𝐠𝐫𝐨𝐮𝐩 𝐩𝐫𝐞𝐟𝐢𝐱: %2"
-  + "\n "
-  + "\n ╭‣ 𝐂𝐈𝐃 ⓕ "
-  + "\n ╰‣ m.me/cid.kagenou2020"
-		
+			reset: "🙆 | Your prefix has been reset to default: %1",
+			onlyAdmin: "⭕ | Only admin can change prefix of system bot",
+			confirmGlobal: "⚠️ | Please react to this message to confirm change prefix of system bot",
+			confirmThisThread: "⚠️ | Please react to this message to confirm change prefix in your box chat",
+			successGlobal: "♻️ | Changed prefix of system bot to: %1",
+			successThisThread: "♻️ | Changed prefix in your box chat to: %1",
+			myPrefix:
+				"╭‣ 𝐂𝐈𝐃 𝐁𝐨𝐭 🎭"
+				+ "\n╰‣ ❀𝐒𝐇𝐀𝐃𝐎𝐖❀"
+				+ "\n"
+				+ "\n🌀 𝐆𝐥𝐨𝐛𝐚𝐥 𝐩𝐫𝐞𝐟𝐢𝐱: %1"
+				+ "\n🏌 𝐘𝐨𝐮𝐫 𝐠𝐫𝐨𝐮𝐩 𝐩𝐫𝐞𝐟𝐢𝐱: %2"
+				+ "\n"
+				+ "\n💡 𝐓𝐢𝐩: 𝐔𝐬𝐞 (%1help) 𝐭𝐨 𝐬𝐞𝐞 𝐚𝐥𝐥 𝐜𝐨𝐦𝐦𝐚𝐧𝐝𝐬"
+				+ "\n╭‣ 𝐂𝐈𝐃 ⓕ"
+				+ "\n╰‣ m.me/cid.kagenou2020"
+		}
 	},
 
 	onStart: async function ({ message, role, args, commandName, event, threadsData, getLang }) {
@@ -80,13 +83,13 @@ module.exports = {
 			newPrefix
 		};
 
-		if (args[1] === "-g")
+		if (args[1] === "-g") {
 			if (role < 2)
 				return message.reply(getLang("onlyAdmin"));
-			else
-				formSet.setGlobal = true;
-		else
+			formSet.setGlobal = true;
+		} else {
 			formSet.setGlobal = false;
+		}
 
 		return message.reply(args[1] === "-g" ? getLang("confirmGlobal") : getLang("confirmThisThread"), (err, info) => {
 			formSet.messageID = info.messageID;
@@ -102,8 +105,7 @@ module.exports = {
 			global.GoatBot.config.prefix = newPrefix;
 			fs.writeFileSync(global.client.dirConfig, JSON.stringify(global.GoatBot.config, null, 2));
 			return message.reply(getLang("successGlobal", newPrefix));
-		}
-		else {
+		} else {
 			await threadsData.set(event.threadID, newPrefix, "data.prefix");
 			return message.reply(getLang("successThisThread", newPrefix));
 		}
@@ -111,8 +113,6 @@ module.exports = {
 
 	onChat: async function ({ event, message, getLang }) {
 		if (event.body && event.body.toLowerCase() === "prefix")
-			return () => {
-				return message.reply(getLang("myPrefix", global.GoatBot.config.prefix, utils.getPrefix(event.threadID)));
-			};
+			return message.reply(getLang("myPrefix", global.GoatBot.config.prefix, utils.getPrefix(event.threadID)));
 	}
 };
